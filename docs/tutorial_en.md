@@ -96,7 +96,9 @@ Like editing templates, modify the runtime configuration.
 
 1. Create a file.
 2. Name the configuration file `user_config.ini`.
-3. Paste the default configuration.
+3. Paste the default configuration. (when creating `user_config.ini`, you can only enter the configuration items you
+   want to modify, no need to copy the entire `config.ini`. Note that the `[Settings]` at the top of the configuration
+   file must be retained, otherwise the custom configuration below will not take effect)
 4. Modify the template and result file configuration:
     - source_file = config/user_demo.txt
     - final_file = output/user_result.txt
@@ -215,7 +217,7 @@ mark).
 ![Workflow executed successfully](./images/workflow-success.png 'Workflow executed successfully')
 
 At this point, you can visit the file link to see if the latest results have been synchronized:
-https://ghproxy.cc/https://raw.githubusercontent.com/your\_github\_username/repository\_name (corresponding to the TV
+https://raw.githubusercontent.com/your\_github\_username/repository\_name (corresponding to the TV
 created when forking)
 /master/output/user\_result.txt
 
@@ -293,7 +295,7 @@ pipenv run ui
 
 ![IPTV-API Update Software](./images/ui.png 'IPTV-API Update Software')
 
-If you do not understand the software configuration options, do not change anything, just click start update.
+If you do not understand the software configuration options, do not change anything, just click start.
 
 ## Docker
 
@@ -377,8 +379,7 @@ Using the host path `/etc/docker` as an example:
 - Scheduled execution time
 
 ```bash
--e UPDATE_CRON1="0 22 * * *"
--e UPDATE_CRON2="0 10 * * *"
+-e UPDATE_CRON="0 22,10 * * *"
 ```
 
 ### 3. Update results
